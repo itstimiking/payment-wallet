@@ -1,0 +1,17 @@
+Setting Djoser to use custome user serializer during user registration
+auth/users/
+in Djsoer settings add in the serializer object 
+
+"user_create_password_retype": "user.serializers.UserCreateSerializer",
+
+
+Exception Value: [Errno 111] Connection refused
+Fix
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+Had this error when trying to register new user after managing 
+to get new user serializer to show in Djoser auth/users/
+
+
+Id is not found in User_id Error when trying to get jwt
+fixed by adding bellow line in simple_jwt settings 
+'USER_ID_FIELD': 'user_id'
