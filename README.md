@@ -2,19 +2,19 @@
 A payment wallet system where users can fund their accounts, withdraw and send money between wallets.
 
 ## CODE STYLE
-    This project uses the PEP8 code style guide 
+This project uses the PEP8 code style guide 
 
 ## GETTING STARTED
-    Prerequisites and installations
-    Local developments
-    Tests 
+Prerequisites and installations
+Local developments
+Tests 
 
 ## API REFERENCE 
 
 ## DEPLOYMENT INSTRUCTIONS 
 
 ## AUTHORS 
-    @itstimiking
+@itstimiking
 
 ## ACKNOWLEGMENTS 
     call out every assistance or insite that helped you
