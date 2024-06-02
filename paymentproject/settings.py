@@ -10,21 +10,31 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
+import os
+import environ
 from pathlib import Path
 from datetime import timedelta
 
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, True)
+)
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+# Take environment variables from .env file
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+
+# False if not in os.environ because of casting above
+DEBUG = env('DEBUG')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-0zpwi!)#=_vkp!0a&7e2-c7@7*^d_f8fa$2*5x(jd%9^*=jntb'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+SECRET_KEY = env('PROJECT_SECRET_KEY')
 
 ALLOWED_HOSTS = []
 
@@ -81,14 +91,7 @@ WSGI_APPLICATION = 'paymentproject.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'payment',
-        'USER': 'root',
-        'PASSWORD': 'xxxxxx',
-        'HOST':'localhost',
-        'PORT':'3306',
-    }
+    'default': env.db()
 }
 
 

@@ -10,6 +10,7 @@ djoser = "*"
 djangorestframework-simplejwt = "*"
 social-auth-app-django = "*"
 mysqlclient = "*"
+django-environ = "*"
 
 [dev-packages]
 
